@@ -7,7 +7,7 @@ const Services = require('tago/services');
 const Account = require('tago/account');
 const moment = require('moment');
 
-function toTagoFormat(objectItem, serie, prefix = '') {
+async function toTagoFormat(objectItem, serie, prefix = '') {
   const result = [];
   for (const key in objectItem) {
     if (typeof objectItem[key] === 'object') {
@@ -41,7 +41,8 @@ async function insidePolygon(point, geofence) {
   const y = point[1];
 
   let inside = false;
-  for (let i = 0, j = geofence.length - 1; i < geofence.length; j = i + 1) {
+  // eslint-disable-next-line no-plusplus
+  for (let i = 0, j = geofence.length - 1; i < geofence.length; j = i++) {
     const xi = geofence[i][0];
     const yi = geofence[i][1];
     const xj = geofence[j][0];
@@ -87,11 +88,11 @@ async function sendEmail(email, subject, message, device, context) {
 
   if (resultArray[1] && resultArray[1].value === true) email.send(to, subject, message).catch(err => context.log(err.message));
 
-  return context.log('Notifications disabled.');
+  return context.log('Email sent!');
 }
 
 async function assetInsideGeofence(data, geofenceArray, allStatus, device, context) {
-  const dataToInsert = toTagoFormat({
+  const dataToInsert = await toTagoFormat({
     exceededMaxTilt: {
       value: false,
     },
@@ -102,7 +103,11 @@ async function assetInsideGeofence(data, geofenceArray, allStatus, device, conte
       value: 0,
     },
     lastStatus: {
-      value: ['i', geofenceArray[allStatus.indexOf(true)].metadata.event],
+      value: 1,
+      metadata: {
+        insideLastTime: 'i',
+        geofenceEvent: geofenceArray[allStatus.indexOf(true)].metadata.event,
+      },
     },
     maximumTilt: {
       value: 0,
@@ -111,32 +116,36 @@ async function assetInsideGeofence(data, geofenceArray, allStatus, device, conte
   });
   await device.insert(dataToInsert).catch(error => context.log(error.message));
 
-  if (!data.lastStatus) return context.log('Function verifyPushNotification ended, cannot compare if asset left/entered without a previous point.');
+  if (!data.lastStatus) return context.log('lastStatus variable undefined');
 
-  if (data.pushNotifications || data.lastStatus.value[0] !== 'o' || !data.pushNotifications.value) return context.log('Notifications disabled');
+  if (data.pushNotifications && !data.pushNotifications.value) return context.log('Notifications disabled');
 
-  if (geofenceArray[allStatus.indexOf(true)].metadata.event !== 1) return context.log('This case does not need notification');
+  if (geofenceArray[allStatus.indexOf(true)].metadata.event != 1 || data.lastStatus.metadata.insideLastTime != 'o') return context.log('This case does not need notification');
 
-  const title = `Your asset ${data.deviceName} entered geofence`;
+  const title = `Your asset ${data.deviceName.name} entered geofence`;
   const message = `Your asset entered the geofence on ${data.time}`;
   return sendEmail(data.email, title, message, device, context);
 }
 
 async function assetOutsideGeofences(data, device, context) {
-  const dataToInsert = toTagoFormat({
+  const dataToInsert = await toTagoFormat({
     lastStatus: {
-      value: ['o', 0],
+      value: 1,
+      metadata: {
+        insideLastTime: 'o',
+        geofenceEvent: 0,
+      },
     },
   });
   await device.insert(dataToInsert).catch(error => context.log(error.message));
 
   if (!data.lastStatus) return context.log('lastStatus variable undefined');
 
-  if (data.lastStatus.value[0] !== 'i' || data.lastStatus.value[2] !== 2) return context.log('This case does not need notification');
+  if (data.lastStatus.metadata.insideLastTime != 'i' || data.lastStatus.metadata.geofenceEvent != 2) return context.log('This case does not need notification');
 
-  if (data.pushNotifications || data.pushNotifications.value === false) return context.log('Notifications disabled');
+  if (data.pushNotifications && !data.pushNotifications.value) return context.log('Notifications disabled');
 
-  const title = `Your asset ${data.deviceName} left geofence`;
+  const title = `Your asset ${data.deviceName.name} left geofence`;
   const message = `Your asset left the geofence on ${data.time}`;
   return sendEmail(data.email, title, message, device, context);
 }
@@ -173,7 +182,6 @@ async function verifyPushNotification(data, device, context) {
   });
 
   const allStatus = await Promise.all(arrayOfStatus);
-
   if (allStatus.includes(true)) {
     await assetInsideGeofence(data, geofenceArray, allStatus, device, context);
   } else {
@@ -204,7 +212,7 @@ async function verifyTilt(time, deviceName, email, tilt, device, context) {
     tiltLimit = resultArray[0].value;
   }
   if (Math.abs(tilt) > Math.abs(tiltLimit)) {
-    const dataToInsert = toTagoFormat({
+    const dataToInsert = await toTagoFormat({
       exceededMaxTilt: {
         value: true,
       },
@@ -236,7 +244,7 @@ async function verifyTemperatureZone(data, device, context) {
   const minTemp = resultArray[0] ? resultArray[0].value : 40;
   const maxTemp = resultArray[1] ? resultArray[1].value : 90;
   if (data.temperature > maxTemp || data.temperature < minTemp) {
-    const dataToInsert = toTagoFormat({
+    const dataToInsert = await toTagoFormat({
       leftTemperatureZone: {
         value: true,
       },
@@ -269,7 +277,6 @@ async function assetHistory(time, name, email, tilt, temperature, device, contex
   const leftTemperatureZone = !resultArray[1] ? false : resultArray[1].value;
 
   const data = {
-    Notification,
     time,
     name,
     email,
@@ -311,7 +318,7 @@ async function insertMaximumTilt(device, context) {
   };
   let maximumTilt = await device.find(maximumFilter).catch(err => context.log(err.message));
   maximumTilt = Math.max(Math.abs(minimumTilt), maximumTilt);
-  let dataToInsert = toTagoFormat({
+  let dataToInsert = await toTagoFormat({
     maximumTilt: {
       value: maximumTilt,
       unit: '°',
@@ -326,43 +333,18 @@ async function insertMaximumTilt(device, context) {
   let tiltLimit = await device.find(tiltLimitFilter).catch(err => context.log(err.message));
   if (!tiltLimit) tiltLimit = 15;
 
-  dataToInsert = toTagoFormat({
+  dataToInsert = await toTagoFormat({
     tiltLimit: {
       value: tiltLimit,
     },
   });
   await device.insert(dataToInsert).catch(error => context.log(error.message));
 
-  dataToInsert = toTagoFormat({ reachedTiltLimit: { value: 1 } });
+  dataToInsert = await toTagoFormat({ reachedTiltLimit: { value: 1 } });
 
-  if (Math.abs(maximumTilt) <= Math.abs(tiltLimit)) dataToInsert = toTagoFormat({ reachedTiltLimit: { value: 0 } });
+  if (Math.abs(maximumTilt) <= Math.abs(tiltLimit)) dataToInsert = await toTagoFormat({ reachedTiltLimit: { value: 0 } });
 
   await device.insert(dataToInsert).catch(error => context.log(error.message));
-}
-
-async function validateNotifications(device, context, notification) {
-  let validateNotification;
-  if (!notification || notification.value) {
-    validateNotification = toTagoFormat({
-      notifications_validation: {
-        value: 'Notifications turned on',
-        metadata: {
-          type: 'success',
-        },
-      },
-    });
-  } else {
-    validateNotification = toTagoFormat({
-      notifications_validation: {
-        value: 'Notifications disabled',
-        metadata: {
-          type: 'danger',
-        },
-      },
-    });
-  }
-
-  await device.insert(validateNotification).catch(error => context.log(error.message));
 }
 
 /**
@@ -409,10 +391,9 @@ async function myAnalysis(context) {
   const lastStatus = dataArray[5];
   const pushNotifications = dataArray[6];
 
-  await validateNotifications(device, context, pushNotifications);
 
   // Inserting with current units
-  const dataToInsert = toTagoFormat({
+  const dataToInsert = await toTagoFormat({
     temperature: {
       value: temperature,
       unit: '°F',
