@@ -48,4 +48,9 @@ To create this action, it's simple, click to add an action. In the following pag
 Ok, if your action is like the action from image above, save it! Now your asset location analysis will run every time data location arrives in your Tago account.
 
 ## Report configuration
-Now that you already created all necessary analyses and actions. You should also set the input form widget in Report tab to run your analysis to generate reports. To do it just click to edit this widget, go to User Control configurations and select the analysis you created to generate reports in the field "Run analysis when submitting form". After that, you'll already be able to generate reports through the dashboard.
+Now that you already created all necessary analyses and actions. You should also set the input form widget in Report tab to run your analysis to generate reports. To do it just click to edit this widget, go to User Control configurations and select the analysis you created to generate reports in the field "Run analysis when submitting form". After that, you'll already be able to generate reports through the dashboard. And that's it, your application should have everything working fine.
+
+## Scalability
+After all, you might be wondering how you could scalate this application. Everything you learnt here is functional to one device and probrably won't be the best solution to use with a thousand devices. To scalate this application we recommend you to use tags, a configuration device and make a few changes in the code. Interested to make this work? Get in touch with us, we will be glad to help you scalate your businness.
+
+TagoIO team. ![tago.png](https://admin.tago.io/favicon-16x16.png?v=jw7PBgLGRl)
