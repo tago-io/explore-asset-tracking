@@ -1,9 +1,9 @@
-# Tago Asset Tracking
+# TagoIO Asset Tracking
 
-This documentation will help you implement the Asset Tracking application. If you haven't seen this application yet click here(ASSET TRACKING EXAMPLE IN EXPLORE WILL BE LINKED HERE). But, if you have already seen and are interested in using this application to your own solution, read this documentation carefully and by the end of it you will have a working asset tracking in your Tago account.
+This documentation will help you implement the Asset Tracking application. If you haven't seen this application yet click here(ASSET TRACKING EXAMPLE IN EXPLORE WILL BE LINKED HERE). But, if you have already seen and are interested in using this application to your own solution, read this documentation carefully and by the end of it you will have a working asset tracking in your TagoIO account.
 
 ## Asset Tracking requirements
-To implement this application you need some items already working in your Tago account. If you do not have some item in the following list, please set this item up and get back to this doc. Check the list bellow:
+To implement this application you need some items already working in your TagoIO account. If you do not have some item in the following list, please set this item up and get back to this doc. Check the list bellow:
 
 - Device with geolocation already configured and bucket also created on TagoIO platform 🌎
 - Basic programming knowledge and willingness to learn :rocket:
@@ -18,7 +18,7 @@ Short list isn't it? This application seems complicated but it's not that much! 
 Let's follow up the list in that order so, starting with the dashboard duplication.
 
 ## Dashboard Duplication
-In the explore option in Tago sidebar, you will see the Asset Tracking example, click in the 'Get this Dashboard' button. When you do this, the asset tracking dashboard will go into your account and a request to associate your devices will appear like the image bellow:
+In the explore option in TagoIO sidebar, you will see the Asset Tracking example, click in the 'Get this Dashboard' button. When you do this, the asset tracking dashboard will go into your account and a request to associate your devices will appear like the image bellow:
 
 ![device-association.png](https://i.postimg.cc/5tDx5g7C/Screenshot-2019-07-08-Dashboard-Asset-Tracking-2.png)
 
@@ -45,7 +45,7 @@ To create this action, it's simple, click to add an action. In the following pag
 
 ![actionTrigger.png](https://i.postimg.cc/bwfWRbg5/Screenshot-2019-07-08-Action-Run-Insertion-with-correct-locati.png)
 
-Ok, if your action is like the action from image above, save it! Now your asset location analysis will run every time data location arrives in your Tago account.
+Ok, if your action is like the action from image above, save it! Now your asset location analysis will run every time data location arrives in your TagoIO account.
 
 ## Report configuration
 Now that you already created all necessary analyses and actions. You should also set the input form widget in Report tab to run your analysis to generate reports. To do it just click to edit this widget, go to User Control configurations and select the analysis you created to generate reports in the field "Run analysis when submitting form". After that, you'll already be able to generate reports through the dashboard. And that's it, your application should have everything working fine.
@@ -53,4 +53,4 @@ Now that you already created all necessary analyses and actions. You should also
 ## Scalability
 After all, you might be wondering how you could scalate this application. Everything you learnt here is functional to one device and probrably won't be the best solution to use with a thousand devices. To scalate this application we recommend you to use tags, a configuration device and make a few changes in the code. Interested to make this work? Get in touch with us, we will be glad to help you scalate your businness.
 
-TagoIO team. ![tago.png](https://admin.tago.io/favicon-16x16.png?v=jw7PBgLGRl)
+TagoIO team. ![tagoIO.png](https://admin.tago.io/favicon-16x16.png?v=jw7PBgLGRl)
