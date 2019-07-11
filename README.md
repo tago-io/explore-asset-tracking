@@ -13,6 +13,7 @@ Short list isn't it? This application seems complicated but it's not that much! 
 - Dashboard duplication
 - Analysis creation
 - Action creation
+- Tile widgets configuration
 - Report configuration
 
 Let's follow up the list in that order so, starting with the dashboard duplication.
@@ -46,6 +47,9 @@ To create this action, it's simple, click to add an action. In the following pag
 ![actionTrigger.png](https://i.postimg.cc/bwfWRbg5/Screenshot-2019-07-08-Action-Run-Insertion-with-correct-locati.png)
 
 Ok, if your action is like the action from image above, save it! Now your asset location analysis will run every time data location arrives in your TagoIO account.
+
+## Tile widgets configuration
+If you check the Overview tab in your dashboard, you'll notice that there are three widget widgets: Details, Reports, and Alerts. These widgets should take you to the current tab that names it, for example, if you click on the widget widget called Details, it should go to the Details tab. To do this, go to the configuration of the tiles widgets, click on "User Control" and paste the link of the other tabs there. Now, your block widgets should be working and take you to other tabs.
 
 ## Report configuration
 Now that you already created all necessary analyses and actions. You should also set the input form widget in Report tab to run your analysis to generate reports. To do it just click to edit this widget, go to User Control configurations and select the analysis you created to generate reports in the field "Run analysis when submitting form". After that, you'll already be able to generate reports through the dashboard. And that's it, your application should have everything working fine.
