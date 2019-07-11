@@ -22,7 +22,7 @@ In the explore option in Tago sidebar, you will see the Asset Tracking example, 
 
 ![device-association.png](https://i.postimg.cc/5tDx5g7C/Screenshot-2019-07-08-Dashboard-Asset-Tracking-2.png)
 
-Just type in the name of the device you want to use in your asset tracking application (you can use more than one, but to start you need to choose one in the association process). After that, all the widgets will already be using the correct device and ready to receive your data!
+Just type in the name of the device you want to use in your asset tracking application. After that, all the widgets will already be using the correct device and ready to receive your data!
 
 ## Analysis creation
 To setup this application you need to create two analysis: assetLocation and generateReports analysis. Let's start with assetLocation. In your account, add an analysis with your name preference and configure the environment variables with your account's token, device's token and dashboard's ID. You should fill in the environment variables as follows:
