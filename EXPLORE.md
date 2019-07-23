@@ -9,5 +9,5 @@ But, if you have already seen and are interested in using this application to yo
 
 # Checkout the screenshots
 
-![Screenshot](https://tago.io/static/product/images/analysis/analysis-1.svg)
-![Screenshot](https://tago.io/static/product/images/analysis/analysis-2.svg)
+<img src="https://tago.io/static/product/images/analysis/analysis-1.svg)"/>
+<img src="https://tago.io/static/product/images/analysis/analysis-2.svg)"/>
