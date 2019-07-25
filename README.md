@@ -2,7 +2,7 @@
 
 This documentation will help you implement the Asset Tracking application. If you haven't seen this application yet click here. 
 
-![device-association.png](https://i.postimg.cc/5tDx5g7C/Screenshot-2019-07-08-Dashboard-Asset-Tracking-2.png)
+![getDashboard.png](/images/GetDashboard.png)
 
 But, if you have already seen and are interested in using this application to your own solution, read this documentation carefully and by the end of it you will have a working asset tracking in your TagoIO account.
 
