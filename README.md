@@ -4,7 +4,7 @@ This documentation will help you implement the Asset Tracking application. If yo
 
 But, if you have already seen and are interested in using this application to your own solution, read this documentation carefully and by the end of it you will have a working asset tracking in your TagoIO account.
 
-[![Foo](/images/getdashboard.png)](https://admin.develop.tago.io/explore)
+[![Get Dashboard](/images/getdashboard.png)](https://admin.develop.tago.io/explore)
 
 ## Asset Tracking requirements
 To implement this application you need some items already working in your TagoIO account. If you do not have some item in the following list, please set this item up and get back to this doc. Check the list bellow:
@@ -24,6 +24,8 @@ Let's follow up the list in that order so, starting with the dashboard duplicati
 
 ## Dashboard Duplication
 In the explore option in TagoIO sidebar, you will see the Asset Tracking example, click in the 'Get this Dashboard' button. When you do this, the asset tracking dashboard will go into your account and a request to associate your devices will appear like the image bellow:
+
+[![device-association.png](https://i.postimg.cc/5tDx5g7C/Screenshot-2019-07-08-Dashboard-Asset-Tracking-2.png)](https://admin.develop.tago.io/explore)
 
 ![device-association.png](https://i.postimg.cc/5tDx5g7C/Screenshot-2019-07-08-Dashboard-Asset-Tracking-2.png)
 
