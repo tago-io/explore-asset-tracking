@@ -5,7 +5,7 @@ This documentation will help you implement the Asset Tracking application. If yo
 But, if you have already seen and are interested in using this application to your own solution, read this documentation carefully and by the end of it you will have a working asset tracking in your TagoIO account.
 
 [![Get Dashboard](/images/getdashboard.png)](https://admin.develop.tago.io/explore)
-[![Get Dashboard](https://github.com/tago-io/explore-asset-tracking/blob/master/images/getAnalysis.png?raw=true)](https://admin.develop.tago.io/explore)
+[![Get Dashboard](https://raw.githubusercontent.com/tago-io/explore-asset-tracking/master/images/getAnalysis.png)](https://admin.develop.tago.io/explore)
 
 ## Asset Tracking requirements
 To implement this application you need some items already working in your TagoIO account. If you do not have some item in the following list, please set this item up and get back to this doc. Check the list bellow:
