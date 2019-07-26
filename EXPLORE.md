@@ -7,9 +7,7 @@ This documentation will help you implement the Asset Tracking application. If yo
 ### What you will learn
 - Generate reports
 - Send notifications and emails
-- How to create and use actions
-- How to create and use analysis
-- Work with tiles, forms, map and other widgets
+- How to work with geofences
 
 ### Application characteristics
 - Devices must have GPS
