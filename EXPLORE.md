@@ -1,4 +1,4 @@
-# TagoIO Asset Tracking [![Visit RUN](https://raw.githubusercontent.com/tago-io/explore-asset-tracking/master/images/visitRun.png?raw=true)](https://admin.develop.tago.io/explore)
+# TagoIO Asset Tracking [![Visit RUN](https://raw.githubusercontent.com/tago-io/explore-asset-tracking/master/images/visitRun.png?raw=true)](http://assettracking.run.tago.io/)
 
 This design demonstrates how an Asset Tracking application can be built on TagoIO. You can interact with the demo as a final user after you signup in the TagoRUN for this application by clicking on "Visit RUN" button. Or, you can access and follow the documentation available on Github to start customizing your solution in minutes by clicking on "Open in Github" button.
 
