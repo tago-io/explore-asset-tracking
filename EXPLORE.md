@@ -12,4 +12,4 @@ This design demonstrates how an Asset Tracking application can be built on TagoI
 ### Device requirements
 For this application your device will need to send:
 - location (lat,lng)
-- temperature, tilt  [optional] 
+- temperature, tilt  (optional)
