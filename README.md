@@ -57,6 +57,6 @@ If you check the Overview tab in your dashboard, you'll notice that there are th
 Now that you already created all necessary analyses and actions. You should also set the input form widget in Report tab to run your analysis to generate reports. To do it just click to edit this widget, go to User Control configurations and select the analysis you created to generate reports in the field "Run analysis when submitting form". After that, you'll already be able to generate reports through the dashboard. And that's it, your application should have everything working fine.
 
 ## Scalability
-After all, you might be wondering how you could scalate this application. Everything you learnt here is functional to one device and probrably won't be the best solution to use with a thousand devices. To scalate this application we recommend you to use tags, a configuration device and make a few changes in the code. Interested to make this work? Get in touch with us, we will be glad to help you scalate your businness.
+After all, you might be wondering how you could scale this application up. Everything you learned here is functional and you can use as a start point to scale it up to thousand of devices. You can use tags, a configuration device, and make a few changes in the code.
 
 TagoIO team. ![tagoIO.png](https://admin.tago.io/favicon-16x16.png?v=jw7PBgLGRl)
