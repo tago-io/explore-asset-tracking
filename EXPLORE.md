@@ -1,8 +1,10 @@
 # TagoIO Asset Tracking
 
-This design demonstrates how an Asset Tracking application can be built on TagoIO. You can interact with the final application by clicking on the **TagoRUN** button, or you can follow the documentation available on Github to start building your own solution in minutes by clicking on **Open in Github**.
-
+This design demonstrates how an Asset Tracking application can be built on TagoIO. You can interact with the final application demo by clicking on the **Try TagoRUN** button
 [![Get Dashboard](https://raw.githubusercontent.com/tago-io/explore-asset-tracking/master/images/getdashboard.png?raw=true)](https://admin.develop.tago.io/explore)
+
+##
+Or, you can get the dashboard and follow the documentation available on Github to start building your own solution in minutes by clicking on **Get Dashboard**.
 [![Get Dashboard](https://raw.githubusercontent.com/tago-io/explore-asset-tracking/master/images/getdashboard.png?raw=true)](https://admin.develop.tago.io/explore)
 
 ### What you will learn
