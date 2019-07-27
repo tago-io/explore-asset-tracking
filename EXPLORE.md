@@ -15,5 +15,5 @@ Or, you can get the dashboard and follow the documentation available on Github t
 
 ### Device requirements
 For this application your device will need to send:
-- location (lat,lng)
-- temperature, tilt  [optional]
+- location
+- temperature, tilt  (optional)
