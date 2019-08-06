@@ -44,6 +44,7 @@ Remember to enter the correct variable names in the environment variables settin
 With everything done, you should have the analyzes working. Now, let's create an action to run our assetLocation analysis.
 
 ## Action creation
+Now, we need to run an analysis everytime we receive location data, this requires an action. Actions are ways to run analyzes, send alerts and do other things everytime something we are tracking happens. You can check more about actions in [here](https://tago.elevio.help/en/articles/30).
 To create this action, it's simple, click to add an action. In the following page, choose the option "Run Analysis" in the "Action to be taken" field and type your action name. Now, select your asset location analysis in the option "Run the Analysis". Now go to the Trigger tab and select the variable "location" or whatever you are using to send asset location to TagoIO platform, select "any" in "Condition" field and don't forget to disable the option "Lock trigger after action is taken". You should have it like this:
 
 ![actionTrigger.png](https://i.postimg.cc/bwfWRbg5/Screenshot-2019-07-08-Action-Run-Insertion-with-correct-locati.png)
